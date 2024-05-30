@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
+
 public class Tarea {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -52,6 +53,7 @@ public class Tarea {
             }
             opcionValida = false; // Resetear la validación para la siguiente iteración
         } while (opcion != 5);
+        scanner.close();
     }
 
     public static void contadorRegresivo() {
@@ -59,44 +61,48 @@ public class Tarea {
         System.out.print("Elija el número desde que desee que se retroceda: ");
         int contador = scanner.nextInt();
         while (contador >= 0) {
-            if (contador<1) {
+            if (contador < 1) {
                 System.out.println("0.");
-            }else {
+            } else {
                 System.out.print(contador + ", ");
             }
             contador--;
         }
+        scanner.close();
     }
 
     public static void acumuladorRegresivo() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Elija el número desde que desee que se cuente: ");
         int numero = scanner.nextInt();
-        System.out.print("Elija la cantidad que desee que vaya contando la progresion (debe ser menor o igual al primer número): ");
-        int acumulador =  scanner.nextInt();
-        System.out.println("Los números en progresión regresiva en "+acumulador + " son:");
+        System.out.print(
+                "Elija la cantidad que desee que vaya contando la progresion (debe ser menor o igual al primer número): ");
+        int acumulador = scanner.nextInt();
+        System.out.println("Los números en progresión regresiva en " + acumulador + " son:");
         while (numero >= 0) {
-            if (numero<1) {
+            if (numero < 1) {
                 System.out.println("0.");
-            }else {
+            } else {
                 System.out.print(numero + ", ");
             }
             numero -= acumulador;
         }
+        scanner.close();
     }
 
     public static void acumuladorYContador() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Elija el número desde que desee que se cuente: ");
         int numero = scanner.nextInt();
-        int acumulador =  0;
+        int acumulador = 0;
         int contador = 0;
         while (contador <= numero) {
-            acumulador+=contador;
+            acumulador += contador;
             contador++;
         }
         System.out.println("Suma acumulada: " + acumulador);
         System.out.println("Número de iteraciones: " + contador);
+        scanner.close();
     }
 
     public static void validacionEntrada() {
@@ -118,5 +124,6 @@ public class Tarea {
             }
         }
         System.out.println("Número válido ingresado: " + numero);
+        scanner.close();
     }
 }
